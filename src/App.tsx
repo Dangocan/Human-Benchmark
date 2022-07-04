@@ -2,8 +2,10 @@ import './index.css';
 
 import React from 'react';
 
+import PageMemoryGame from './pages/PageMemoryGame';
+
 function App() {
-  return <div className="App"></div>;
+  return <PageMemoryGame />;
 }
 
 export default App;
