@@ -1,7 +1,16 @@
 import { Tab, TabList, Tabs } from '@chakra-ui/react';
 import React from 'react';
 
+type TNavBarItem = {
+  title: string;
+};
+
 function MainNavBar() {
+  const navBarItems: TNavBarItem[] = [
+    { title: 'Home' },
+    { title: 'Ranking' },
+    { title: 'Contact' },
+  ];
   return (
     <Tabs
       as="header"
@@ -17,9 +26,17 @@ function MainNavBar() {
       borderColor="backgroundSecondary"
     >
       <TabList flex="1">
-        <Tab _selected={{ color: 'secondary', borderRight: '2px solid' }}>Home</Tab>
-        <Tab _selected={{ color: 'secondary', borderRight: '2px solid' }}>Ranking</Tab>
-        <Tab _selected={{ color: 'secondary', borderRight: '2px solid' }}>Contact</Tab>
+        {navBarItems.map((navBarItem: TNavBarItem, index) => (
+          <Tab
+            key={`${navBarItem.title}_0${index}`}
+            _selected={{ color: 'secondary', borderRight: '2px solid' }}
+            _hover={{ color: 'secondary', borderRight: '2px solid' }}
+            borderBottom="2px solid"
+            borderColor="backgroundSecondary"
+          >
+            {navBarItem.title}
+          </Tab>
+        ))}
       </TabList>
     </Tabs>
   );
